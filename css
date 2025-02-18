@@ -1,0 +1,107 @@
+# Complete CSS Structure for Café Essence Website
+
+## 1. Base CSS (client/src/index.css)
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+```
+
+## 2. Theme Configuration (theme.json)
+```json
+{
+  "variant": "professional",
+  "primary": "hsl(25, 95%, 53%)",
+  "appearance": "light",
+  "radius": 0.5
+}
+```
+
+## 3. Tailwind Configuration (tailwind.config.ts)
+This defines all the custom colors, spacing, and other design tokens:
+```typescript
+theme: {
+  extend: {
+    colors: {
+      background: "hsl(var(--background))",
+      foreground: "hsl(var(--foreground))",
+      card: {
+        DEFAULT: "hsl(var(--card))",
+        foreground: "hsl(var(--card-foreground))",
+      },
+      primary: {
+        DEFAULT: "hsl(var(--primary))",
+        foreground: "hsl(var(--primary-foreground))",
+      },
+      secondary: {
+        DEFAULT: "hsl(var(--secondary))",
+        foreground: "hsl(var(--secondary-foreground))",
+      },
+      muted: {
+        DEFAULT: "hsl(var(--muted))",
+        foreground: "hsl(var(--muted-foreground))",
+      },
+      accent: {
+        DEFAULT: "hsl(var(--accent))",
+        foreground: "hsl(var(--accent-foreground))",
+      }
+    },
+    borderRadius: {
+      lg: "var(--radius)",
+      md: "calc(var(--radius) - 2px)",
+      sm: "calc(var(--radius) - 4px)",
+    }
+  }
+}
+```
+
+## 4. Component Styling Examples
+
+### Navigation:
+```tsx
+<nav className="fixed top-0 w-full bg-background/80 backdrop-blur-sm z-50 border-b">
+  <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+    {/* Navigation content */}
+  </div>
+</nav>
+```
+
+### Hero Section:
+```tsx
+<section className="pt-24 md:pt-32 pb-16 px-4">
+  <div className="container mx-auto text-center">
+    <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/70 text-transparent bg-clip-text">
+      Welcome to Café Essence
+    </h1>
+  </div>
+</section>
+```
+
+### Menu Cards:
+```tsx
+<Card className="overflow-hidden hover:shadow-lg transition-shadow">
+  <CardContent className="p-6">
+    <div className="flex justify-between items-start mb-2">
+      <h3 className="font-semibold text-lg">{item.name}</h3>
+      <span className="text-primary font-medium">{item.price}</span>
+    </div>
+  </CardContent>
+</Card>
+```
+
+This website uses a combination of:
+1. Utility-first CSS through Tailwind
+2. Custom theme variables for consistent colors and spacing
+3. Responsive design with mobile-first approach
+4. Interactive elements with hover states and transitions
+5. Modern glass-morphism effects (like the navbar with backdrop blur)
