@@ -1,154 +1,168 @@
-/* Cafe Essence - Complete Stylesheet */
-
 /* Base Styles */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Custom Base Styles */
-@layer base {
-  * {
-    border-color: hsl(var(--border));
-  }
-
-  body {
-    font-family: system-ui, -apple-system, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-  }
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
 }
 
-/* Theme Variables */
-:root {
-  --background: 0 0% 100%;
-  --foreground: 240 10% 3.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 240 10% 3.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 240 10% 3.9%;
-  --primary: 25 95% 53%;
-  --primary-foreground: 355.7 100% 97.3%;
-  --secondary: 240 4.8% 95.9%;
-  --secondary-foreground: 240 5.9% 10%;
-  --muted: 240 4.8% 95.9%;
-  --muted-foreground: 240 3.8% 46.1%;
-  --accent: 240 4.8% 95.9%;
-  --accent-foreground: 240 5.9% 10%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 240 5.9% 90%;
-  --input: 240 5.9% 90%;
-  --ring: 25 95% 53%;
-  --radius: 0.5rem;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-/* Navigation Styles */
-.nav-fixed {
-  @apply fixed top-0 w-full bg-background/80 backdrop-blur-sm z-50 border-b;
+/* Header Styles */
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .nav-container {
-  @apply container mx-auto px-4 py-4 flex justify-between items-center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
 }
 
 .nav-link {
-  @apply hover:text-primary transition-colors;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #ff6f61;
 }
 
 /* Hero Section */
-.hero-section {
-  @apply pt-24 md:pt-32 pb-16 px-4;
+.hero {
+    background: url('https://source.unsplash.com/1600x900/?coffee,beverage') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding-top: 50px; /* Space for the fixed header */
+}
+
+.hero-content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
 }
 
 .hero-title {
-  @apply text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/70 text-transparent bg-clip-text;
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
 .hero-subtitle {
-  @apply text-xl text-muted-foreground max-w-2xl mx-auto;
+    font-size: 1.5rem;
+}
+
+/* Section Styles */
+section {
+    padding: 4rem 1rem;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* About Section */
+.about {
+    background-color: #fff;
+    text-align: center;
+}
+
+.about p {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
 }
 
 /* Menu Section */
-.menu-card {
-  @apply overflow-hidden hover:shadow-lg transition-shadow;
+.menu {
+    background-color: #ff6f61;
+    color: #fff;
+}
+
+.menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
 }
 
 .menu-item {
-  @apply flex justify-between items-start mb-2;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 5px;
+    width: calc(33.333% - 2rem);
+    box-sizing: border-box;
+    transition: transform 0.3s;
 }
 
-.menu-title {
-  @apply font-semibold text-lg;
+.menu-item:hover {
+    transform: scale(1.05);
 }
 
-.menu-price {
-  @apply text-primary font-medium;
+.menu-item h3 {
+    margin-top: 0;
 }
 
-/* Gallery Section */
-.gallery-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
-}
-
-.gallery-image {
-  @apply object-cover w-full h-full rounded-sm group-hover:scale-105 transition-transform duration-300;
+.menu-item p {
+    margin-bottom: 0;
 }
 
 /* Contact Section */
-.contact-grid {
-  @apply grid md:grid-cols-2 gap-8;
+.contact {
+    background-color: #fff;
+    text-align: center;
 }
 
 .contact-info {
-  @apply flex items-start gap-3;
+    margin-top: 1rem;
 }
 
-.contact-icon {
-  @apply h-5 w-5 text-primary mt-1;
+.contact-info a {
+    color: #ff6f61;
+    font-weight: bold;
 }
 
 /* Footer Styles */
 .footer {
-  @apply bg-primary/5 py-8;
-}
-
-.footer-grid {
-  @apply grid grid-cols-1 md:grid-cols-3 gap-8;
-}
-
-.footer-title {
-  @apply font-bold mb-4;
-}
-
-.footer-text {
-  @apply text-muted-foreground;
-}
-
-.footer-link {
-  @apply text-muted-foreground hover:text-primary;
-}
-
-/* Responsive Utilities */
-@media (max-width: 768px) {
-  .hero-title {
-    @apply text-3xl;
-  }
-  
-  .nav-container {
-    @apply px-2 py-3;
-  }
-}
-
-/* Animation Classes */
-.hover-scale {
-  @apply transition-transform duration-300 hover:scale-105;
-}
-
-.fade-in {
-  @apply animate-in fade-in duration-500;
-}
-
-.slide-in {
-  @apply animate-in slide-in-from-bottom duration-500;
-}
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: ▋
